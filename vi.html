@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khoa Ngôn ngữ & Văn học Hàn Quốc, Đại học Chung-Ang, Chuyên ngành Giáo dục Ngôn ngữ & Văn hóa Hàn Quốc</title>
+    <style>
+        body {
+            /* ✅ 배경 이미지 추가 및 설정 */
+            background-image: url('cau_backgound_2.png');
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #f4f7fb; /* 배경 이미지와 함께 사용 */
+
+            font-family: 'Malgun Gothic', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            max-width: 1100px;
+            margin: 0 auto 40px auto;
+            background-color: #ffffff;
+            padding: 24px 28px 40px 28px;
+            box-shadow: 0 0 18px rgba(0, 0, 0, 0.15); /* 그림자 조정 */
+            border-radius: 12px;
+        }
+        
+        /* ✅ 헤더 스타일 수정 (Flexbox 적용) */
+        header {
+            background: linear-gradient(135deg, #0b70c9, #4fc3f7);
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 16px;
+            box-shadow: 0 3px 8px rgba(3, 57, 108, 0.3);
+            border-radius: 10px 10px 0 0; 
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* 이미지 그룹과 텍스트 그룹 사이 간격 */
+            flex-wrap: wrap; /* 화면이 작으면 줄바꿈 */
+            max-width: 95%;
+            margin: 0 auto;
+        }
+
+        /* 왼쪽 이미지 그룹 */
+        .header-logos {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 오른쪽 텍스트 그룹 */
+        .header-text {
+            text-align: left;
+        }
+
+        /* 헤더 이미지 사이즈 및 컬러 조정 (파란 배경이라 흰색 필터 적용) */
+        .h-emblem {
+            width: 60px;
+            height: auto;
+            filter: brightness(0) invert(1); 
+        }
+        .h-logotype {
+            width: 200px;
+            height: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        /* ✅ 마스코트 이미지 스타일 */
+        .mascot-reading {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 20px auto; 
+        }
+        
+        .mascot-wink {
+            width: 80px;
+            height: auto;
+            float: right;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .mascot-burger {
+            width: 120px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .mascot-cheer {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 30px auto 10px auto;
+        }
+
+        .mascot-reading-small {
+            width: 80px;
+            height: auto;
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* ✅ 하단 심볼 및 로고타입 스타일 */
+        .footer-symbol-area {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            display: flex; /* 나란히 배치 */
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        .f-symbol {
+            width: 60px;
+            height: auto;
+            opacity: 0.8;
+        }
+        .f-logotype {
+            width: 180px;
+            height: auto;
+            opacity: 0.8;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.7rem; /* 텍스트 크기 살짝 조정 */
+            letter-spacing: 0.03em;
+            line-height: 1.2;
+        }
+        header p {
+            margin: 6px 0 0 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* 언어 선택 메뉴 */
+        .lang-switcher {
+            text-align: right;
+            padding: 10px 8%;
+            background-color: #e6f2ff;
+            font-size: 0.9rem;
+        }
+        .lang-switcher a {
+            text-decoration: none;
+            color: #0b70c9;
+            margin-left: 10px;
+            font-weight: 600;
+            padding: 5px 8px;
+            border-radius: 999px;
+            background-color: #ffffff;
+            border: 1px solid #bbdefb;
+        }
+        .lang-switcher a:hover {
+            background-color: #e3f2fd;
+        }
+        nav {
+            background-color: #e8f0fb;
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 18px;
+            border-top: 1px solid #d0e2ff;
+            border-bottom: 1px solid #d0e2ff;
+        }
+        nav a {
+            text-decoration: none;
+            color: #24527a;
+            margin: 0 14px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        nav a:hover {
+            color: #0b70c9;
+            text-decoration: underline;
+        }
+        section {
+            padding: 18px 0 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        h2 {
+            color: #0b70c9;
+            border-left: 5px solid #0b70c9;
+            padding-left: 10px;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+        h3 {
+            color: #37474f;
+            border-bottom: 1px dashed #cfd8dc;
+            padding-bottom: 4px;
+            margin-top: 16px;
+            font-size: 1.02rem;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 22px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 8px 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e3f2fd;
+            font-weight: 600;
+        }
+        .roadmap-item {
+            margin-bottom: 12px;
+            padding: 10px 12px;
+            border-left: 3px solid #29b6f6;
+            background-color: #e1f5fe;
+            border-radius: 6px;
+        }
+        .notice {
+            background-color: #e3f2fd;
+            padding: 14px 16px;
+            border: 1px solid #bbdefb;
+            margin-top: 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+        .sub-note {
+            font-size: 0.9rem;
+            color: #616161;
+        }
+        a.link-out {
+            color: #0b70c9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a.link-out:hover {
+            text-decoration: underline;
+        }
+        /* float 해제용 */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        /* ✅ 페이지 최상단으로 올라가는 버튼 스타일 */
+        #go-to-top {
+            display: none; /* 초기에는 숨김 */
+            position: fixed; /* 페이지 외곽에 고정 */
+            bottom: 30px; /* 아래에서 30px */
+            right: 30px; /* 오른쪽에서 30px */
+            z-index: 99; /* 다른 요소 위에 표시 */
+            border: none;
+            outline: none;
+            background-color: #4fc3f7; /* 배경색 (헤더의 밝은 색상 사용) */
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%; /* 원형 버튼 */
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, opacity 0.3s;
+            opacity: 0.9;
+            font-weight: 700;
+            width: 50px; /* 너비 고정 */
+            height: 50px; /* 높이 고정 */
+            text-align: center;
+            line-height: 20px;
+        }
+
+        #go-to-top:hover {
+            background-color: #0b70c9; /* 마우스 오버 시 색상 변경 */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-switcher">
+        <a href="index.html">⬅️Trang chính</a> <a href="ko.html">🇰🇷 Tiếng Hàn</a>
+        <a href="en.html">En English</a>
+        <a href="zh.html">🇨🇳 Tiếng Trung giản thể</a>
+        <a href="ja.html">🇯🇵 Tiếng Nhật</a>
+        <a href="vi.html">🇻🇳 Tiếng Việt</a>
+        <a href="mn.html">🇲🇳 Tiếng Mông Cổ</a>
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <div class="header-logos">
+                <img src="CAU_emblem.png" alt="Huy hiệu Đại học Chung-Ang" class="h-emblem">
+                <img src="UI02_CAU_logotype_KOR_ENG.png" alt="Logo Đại học Chung-Ang" class="h-logotype">
+            </div>
+            
+            <div class="header-text">
+                <h1>Khoa Ngôn ngữ & Văn học Hàn Quốc, Đại học Chung-Ang, Chuyên ngành Giáo dục Ngôn ngữ & Văn hóa Hàn Quốc</h1>
+                <p>CAU Department of Korean Language and Literature · Major in Korean Language Education &amp; Korean Culture</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <a href="#intro">Giới thiệu Chuyên ngành</a>
+            <a href="#admission">Hướng dẫn Tuyển sinh</a>
+            <a href="#curriculum">Chương trình Đào tạo</a>
+            <a href="#graduation">Điều kiện Tốt nghiệp</a>
+            <a href="#faculty">Giới thiệu Đội ngũ Giảng viên</a>
+            <a href="#notice">Thông báo</a>
+        </nav>
+
+        <section id="intro">
+            <h2>1. Giới thiệu Chuyên ngành và Mục tiêu Đào tạo</h2>
+
+            <h3>1.1. Lời mở đầu</h3>
+            <div class="clearfix">
+                <img src="푸앙_윙크.png" alt="Pooh-ang nháy mắt" class="mascot-wink">
+                <p>
+                    Chuyên ngành này được thiết kế riêng cho sinh viên quốc tế nhằm đáp ứng sự quan tâm ngày càng tăng đối với K-Culture trên toàn thế giới và nhu cầu ngày càng cao về chuyên gia giáo dục tiếng Hàn. Chúng tôi xin giới thiệu tầm quan trọng chiến lược và chương trình đào tạo có hệ thống của chuyên ngành này, với mục tiêu đào tạo các chuyên gia giáo dục tiếng Hàn toàn cầu, dẫn đầu kỷ nguyên AI.
+                </p>
+            </div>
+
+            <h3>1.2. Giới thiệu Chuyên ngành chính thức và Mục tiêu Đào tạo</h3>
+            <p>
+                Chuyên ngành Giáo dục Ngôn ngữ & Văn hóa Hàn Quốc hướng tới đào tạo những nhân tài có năng lực cân bằng giữa lý thuyết giáo dục tiếng Hàn như một ngoại ngữ, thiết kế bài giảng, và kiến thức về nội dung nhân văn bao gồm văn hóa truyền thống và văn hóa hiện đại của Hàn Quốc. Năm thứ nhất, sinh viên sẽ xây dựng năng lực nền tảng chuyên ngành thông qua việc rèn luyện kỹ năng nói, đọc, viết, thuyết trình tiếng Hàn học thuật và sử dụng AI tạo sinh như một công cụ học tập. Năm thứ hai, sinh viên sẽ hệ thống hóa nền tảng học thuật với các môn như Đại cương Ngôn ngữ Hàn, Quy tắc Ngôn ngữ, Văn học, Ngôn ngữ học đối chiếu, và Ngữ pháp học. Năm thứ ba, sinh viên sẽ chuyên sâu về phương pháp giảng dạy liên quan đến Lý luận về Thu nhận Ngôn ngữ thứ hai, Phát âm, Ngữ pháp, Giáo dục Kỹ năng Hiểu, Đánh giá, và Giáo trình. Năm thứ tư, sinh viên sẽ hoàn thiện năng lực thích ứng với thực tiễn thông qua Thực tập Sư phạm, phân tích văn hóa đại chúng và tự sự hiện đại, đồng thời hoàn thành hồ sơ năng lực (portfolio).
+            </p>
+
+            <h3>Mục tiêu Đào tạo</h3>
+            <ul>
+                <li>Đào tạo các chuyên gia giáo dục có khả năng vận hành lớp học tiếng Hàn, năng lực phát triển chương trình giảng dạy, đánh giá, và giáo trình, dựa trên nền tảng của Ngôn ngữ học quốc ngữ, Giáo dục tiếng Hàn, và Hàn Quốc học.</li>
+                <li>Hiểu một cách phê phán tính lịch sử và tính đương đại của văn hóa Hàn Quốc, từ văn hóa truyền thống đến văn hóa đại chúng hiện đại, đồng thời bồi dưỡng năng lực phân tích nội dung và kể chuyện (storytelling).</li>
+                <li>Thiết lập phẩm chất sử dụng công cụ kỹ thuật số, bao gồm AI tạo sinh, một cách thích hợp như phương tiện hỗ trợ nhằm nâng cao hiệu quả giảng dạy/học tập và cải thiện giao tiếp học thuật trong môi trường giáo dục đang thay đổi.</li>
+                <li>Tăng cường năng lực giao tiếp liên văn hóa và năng lực thực tiễn tại hiện trường trong môi trường đa văn hóa, đa ngôn ngữ, hỗ trợ sinh viên thâm nhập vào các tổ chức giáo dục và lĩnh vực nội dung văn hóa trong và ngoài nước.</li>
+            </ul>
+
+            <h3>1.3. Lộ trình Đào tạo 4 năm: Quá trình bồi dưỡng Chuyên gia Giáo dục Tiếng Hàn trong kỷ nguyên AI</h3>
+            <p>Chương trình đào tạo của chuyên ngành này được thiết kế nhằm củng cố năng lực một cách hệ thống, từ kiến thức nền tảng đến thực tiễn tại hiện trường.</p>
+
+            <div class="roadmap-item">
+                <strong>Năm thứ 1 【Nền tảng Hàn Quốc học ứng dụng AI】</strong>
+                <p>Năng lực giao tiếp tiếng Hàn học thuật dựa trên AI tạo sinh và học tập kiến thức nền tảng chuyên ngành.</p>
+            </div>
+            <div class="roadmap-item">
+                <strong>Năm thứ 2 【Hệ thống hóa Lý thuyết Ngôn ngữ & Văn hóa】</strong>
+                <p>Xây dựng nền tảng lý thuyết như Ngôn ngữ học tiếng Hàn, Ngữ pháp học, Ngôn ngữ học đối chiếu, v.v.</p>
+            </div>
+            <div class="roadmap-item">
+                <strong>Năm thứ 3 【Chuyên sâu về Phương pháp giảng dạy + Nội dung】</strong>
+                <p>Chuyên sâu về phương pháp giảng dạy liên quan đến Phát âm, Ngữ pháp, Lý luận Giáo dục Kỹ năng Hiểu/Diễn đạt/Đánh giá, và Giáo trình.</p>
+            </div>
+            <div class="roadmap-item">
+                <strong>Năm thứ 4 【Thực tập tại hiện trường + Portfolio】</strong>
+                <p>Hoàn thiện năng lực thực tiễn thông qua Thực tập Sư phạm, Phát triển Giáo trình, Phân tích Văn hóa Đại chúng/Tự sự.</p>
+            </div>
+
+            <h3>1.4. Hồ sơ Sinh viên phù hợp với Chuyên ngành (Recommended Student Profile)</h3>
+            <img src="푸앙_응원.png" alt="Pooh-ang cổ vũ" class="mascot-cheer">
+            <p>Chuyên ngành này phù hợp với những sinh viên sau:</p>
+            <ul>
+                <li>Quan tâm đến việc giao tiếp với người nước ngoài và giảng dạy tiếng Hàn.</li>
+                <li>Muốn quảng bá văn hóa Hallyu như K-Drama, K-Pop ra thế giới.</li>
+                <li>Có sự tò mò về tổng thể văn hóa Hàn Quốc, từ văn hóa truyền thống đến văn hóa đại chúng.</li>
+                <li>Muốn bồi dưỡng năng lực giao tiếp liên văn hóa trong xã hội đa văn hóa.</li>
+                <li>Có hứng thú trong việc sử dụng các công cụ kỹ thuật số mới nhất, bao gồm AI tạo sinh, trong giáo dục.</li>
+                <li>Muốn phát huy năng lực giáo dục thực chất tại các cơ sở giáo dục trong và ngoài nước.</li>
+                <li>Quan tâm đến phân tích ngôn ngữ học và thiết kế phương pháp giảng dạy có hệ thống.</li>
+                <li>Muốn phát triển năng lực kể chuyện (storytelling) và phân tích/lên kế hoạch nội dung.</li>
+                <li>Muốn tích lũy kinh nghiệm toàn cầu bằng cách hoạt động như một giáo viên tiếng Hàn ở nước ngoài.</li>
+                <li>Muốn thử thách bản thân trong việc sản xuất nội dung giáo dục, bao gồm phát triển giáo trình và thiết kế đánh giá.</li>
+            </ul>
+
+            <h3>1.5. Hướng phát triển sự nghiệp sau khi tốt nghiệp (Career Paths after Graduation)</h3>
+            <ul>
+                <li><strong>Các Tổ chức Giáo dục Tiếng Hàn</strong>: Học viện Tiếng Hàn của các trường đại học trong và ngoài nước, Học viện Sejong, Trung tâm hỗ trợ gia đình đa văn hóa, trường học cho người nước ngoài, giáo viên được cử đi từ Quỹ Giao lưu Quốc tế Hàn Quốc, v.v.</li>
+                <li><strong>Ngành Công nghiệp Nội dung Văn hóa</strong>: Công ty lên kế hoạch nội dung Hallyu, tác giả kể chuyện Webtoon/Drama, hướng dẫn viên du lịch văn hóa, chuyên gia biên/phiên dịch.</li>
+                <li><strong>Các Tổ chức Nghiên cứu Giáo dục</strong>: Viện nghiên cứu liên quan đến giáo dục tiếng Hàn, tổ chức phát triển giáo trình/chương trình giảng dạy, Viện đánh giá giáo dục ngôn ngữ, học lên cao học.</li>
+                <li><strong>Các Cơ quan Công cộng</strong>: Các tổ chức trực thuộc Bộ Giáo dục/Bộ Văn hóa, Thể thao và Du lịch, đơn vị phụ trách chính sách người nước ngoài của chính quyền địa phương, Trung tâm Giao lưu Quốc tế, dịch vụ đa văn hóa tại thư viện công cộng.</li>
+                <li><strong>Sở hữu Chứng chỉ</strong>: Hoạt động tự do (freelancer) sau khi sở hữu các chứng chỉ chuyên môn như Chứng chỉ Giáo viên Tiếng Hàn cấp 2, Hướng dẫn viên du lịch văn hóa, Hướng dẫn viên phiên dịch du lịch, v.v.</li>
+            </ul>
+            <p class="sub-note">
+                Như vậy, Chuyên ngành Giáo dục Ngôn ngữ & Văn hóa Hàn Quốc bồi dưỡng các nhà lãnh đạo toàn cầu dẫn dắt kỷ nguyên văn hóa Hallyu thông qua chương trình đào tạo có hệ thống và thiết kế lộ trình sự nghiệp rõ ràng.
+            </p>
+        </section>
+
+        <section id="admission">
+            <h2>2. Hướng dẫn Tuyển sinh (Tiêu chuẩn Tuyển chọn Sinh viên Quốc tế Thuần túy nhập học tháng 3 năm học 2026)</h2>
+
+            <h3>2.1. Lời mở đầu</h3>
+            <p>
+                Phần này cung cấp thông tin tóm tắt về quy trình tuyển sinh cho sinh viên quốc tế mong muốn nhập học Đại học Chung-Ang, dựa trên "Hướng dẫn tuyển sinh học kỳ đầu tiên năm học 2026 dành cho sinh viên quốc tế thuần túy hệ đại học". Chuyên ngành Giáo dục Ngôn ngữ & Văn hóa Hàn Quốc là một khoa chuyên biệt mới được thành lập chỉ dành cho sinh viên quốc tế, vì vậy, vui lòng kiểm tra kỹ điều kiện ứng tuyển.
+            </p>
+
+            <h3>2.2. Điều kiện Ứng tuyển</h3>
+            <p><strong>1) Học lực và Quốc tịch (Chung)</strong></p>
+            <ul>
+                <li><strong>Tuyển sinh mới</strong>: Là sinh viên quốc tế mà cả cha và mẹ đều là người nước ngoài, đã (hoặc sắp) tốt nghiệp trường trung học phổ thông chính quy trong hoặc ngoài nước, hoặc người được công nhận có trình độ học vấn tương đương trở lên.</li>
+                <li><strong>Chuyển tiếp năm thứ 2</strong>: Là sinh viên quốc tế mà cả cha và mẹ đều là người nước ngoài, đã (hoặc sắp) hoàn thành từ 2 học kỳ (1 năm) trở lên tại trường đại học 4 năm chính quy trong hoặc ngoài nước, hoặc đã (hoặc sắp) tốt nghiệp trường cao đẳng chính quy trong hoặc ngoài nước.</li>
+                <li><strong>Chuyển tiếp năm thứ 3</strong>: Là sinh viên quốc tế mà cả cha và mẹ đều là người nước ngoài, đã (hoặc sắp) hoàn thành từ 4 học kỳ (2 năm) trở lên tại trường đại học 4 năm chính quy trong hoặc ngoài nước, hoặc đã (hoặc sắp) tốt nghiệp trường cao đẳng chính quy trong hoặc ngoài nước.</li>
+            </ul>
+
+            <p><strong>2) Ngôn ngữ</strong></p>
+            <ul>
+                <li>Không có yêu cầu trình độ tiếng Hàn riêng biệt tại thời điểm nộp hồ sơ.</li>
+                <li>Tuy nhiên, để theo học chương trình đại học, sinh viên phải đáp ứng tiêu chuẩn năng lực tiếng Hàn; những người không đáp ứng phải tham gia chương trình tái đào tạo tiếng Hàn.
+                    (Vui lòng tham khảo hướng dẫn tuyển sinh chính thức để biết chi tiết tiêu chuẩn năng lực tiếng Hàn để theo học đại học.)</li>
+                <li>Bắt buộc phải đạt trình độ 한국어능력시험(TOPIK) 4급 trở lên để tốt nghiệp (theo tiêu chuẩn đánh giá tốt nghiệp của chuyên ngành này).</li>
+            </ul>
+
+            <h3>2.3. Phương thức Tuyển sinh và Lịch trình</h3>
+            <p><strong>Phương thức Tuyển sinh</strong></p>
+            <ul>
+                <li>Phương thức đánh giá: 100% đánh giá hồ sơ (tổng hợp một lần)</li>
+                <li>Đăng ký nhiều nguyện vọng: Có thể đăng ký tối đa 2 chuyên ngành cùng lúc</li>
+            </ul>
+
+            <p><strong>Lịch trình chính của đợt tuyển sinh thứ 2 học kỳ đầu tiên năm học 2026 (Nhập học tháng 3)</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phân loại</th>
+                        <th>Lịch trình</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nộp hồ sơ và giấy tờ</td>
+                        <td>2025. 11. 12. (수) ~ 11. 26. (수)</td>
+                    </tr>
+                    <tr>
+                        <td>Công bố danh sách trúng tuyển</td>
+                        <td>2025. 12. 19. (금)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2.4. Hướng dẫn Tuyển sinh của Phòng Hợp tác Quốc tế</h3>
+            <p>
+                Thông tin chính xác và đầy đủ nhất về quy trình tuyển sinh có thể được kiểm tra trên trang web của Phòng Hợp tác Quốc tế Đại học Chung-Ang.
+            </p>
+            <p>
+                <a href="https://oia.cau.ac.kr/" class="link-out" target="_blank">Đi đến Hướng dẫn Tuyển sinh của Phòng Hợp tác Quốc tế Đại học Chung-Ang</a>
+            </p>
+        </section>
+
+        <section id="curriculum">
+            <h2>3. Chương trình Đào tạo</h2>
+
+            <h3>3.1. Giới thiệu</h3>
+            <div class="clearfix">
+                <img src="푸앙_독서.png" alt="Pooh-ang đang đọc sách" class="mascot-reading-small">
+                <p>
+                    Chương trình đào tạo của Chuyên ngành Giáo dục Ngôn ngữ & Văn hóa Hàn Quốc được thiết kế để liên kết một cách hệ thống, từ việc thiết lập kiến thức nền tảng ở năm học thấp hơn đến ứng dụng thực tiễn và chuyên môn hóa ở năm học cao hơn. Nếu hoàn thành tốt chương trình này, sinh viên sẽ đáp ứng các điều kiện để nhận 「한국어교원 2급 자격증」 khi tốt nghiệp, từ đó có thể bước những bước đầu tiên trên con đường trở thành chuyên gia giáo dục tiếng Hàn.
+                </p>
+            </div>
+
+            <h3>3.2. Môn học Nền tảng Chuyên ngành và Môn học Bắt buộc Chuyên ngành</h3>
+            <p><strong>Môn học Nền tảng Chuyên ngành (15 tín chỉ)</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Tên Môn học (bằng tiếng Hàn)</th>
+                        <th>Course Title (in English)</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>59311</td><td>생성형 AI를 활용한 한국학 전공 말하기</td><td>Korean Studies Speaking Utilizing Generative AI</td><td>3</td></tr>
+                    <tr><td>59312</td><td>한국학 자료 읽기</td><td>Academic Reading in Korean</td><td>3</td></tr>
+                    <tr><td>59313</td><td>AI 시대 한국학 기초 어휘론</td><td>The Basic Vocabulary Theory of Korean Studies in the AI Era</td><td>3</td></tr>
+                    <tr><td>59330</td><td>생성형 AI를 활용한 한국학 전공 쓰기</td><td>Writing in Korean Studies Using Generative AI</td><td>3</td></tr>
+                    <tr><td>59331</td><td>생성형 AI를 활용한 한국학 발표와 토론</td><td>Korean Studies Presentations and Discussions Utilizing Generative AI</td><td>3</td></tr>
+                </tbody>
+            </table>
+
+            <p><strong>Môn học Bắt buộc Chuyên ngành (Chọn 12 tín chỉ từ 6 môn dưới đây)</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Tên Môn học (bằng tiếng Hàn)</th>
+                        <th>Course Title (in English)</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>59314</td><td>한국어학개론</td><td>Introduction to Korean Linguistics</td><td>3</td></tr>
+                    <tr><td>59315</td><td>한국어어문규범</td><td>Korean Orthology</td><td>3</td></tr>
+                    <tr><td>59316</td><td>한국의 전통문화</td><td>Korean traditional culture</td><td>3</td><td></td>
+                    </tr>
+                    <tr><td>59332</td><td>한국어문법론</td><td>Studies in Korean Grammar</td><td>3</td></tr>
+                    <tr><td>59333</td><td>대조언어학</td><td>Contrastive Linguistics</td><td>3</td></tr>
+                    <tr><td>59336</td><td>디지털 시대의 한국 옛노래</td><td>Old Korean Classical Poems in the Digital Age</td><td>3</td></tr>
+                </tbody>
+            </table>
+
+            <h3>3.3. Bảng Chương trình Đào tạo Tổng thể (Môn học mở theo từng năm học)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Semester</th>
+                        <th>Category</th>
+                        <th>Course Code</th>
+                        <th>Tên Môn học (bằng tiếng Hàn)</th>
+                        <th>Course Title (in English)</th>
+                        <th>Credits</th>
+                        <th>Certificate Relevance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td><td>1</td><td>Basic</td><td>59311</td><td>생성형 AI를 활용한 한국학 전공 말하기</td><td>Korean Studies Speaking Utilizing Generative AI</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td><td>1</td><td>Basic</td><td>59312</td><td>한국학 자료 읽기</td><td>Academic Reading in Korean</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td><td>1</td><td>Basic</td><td>59313</td><td>AI시대 한국학 기초어휘론</td><td>The Basic Vocabulary Theory of Korean Studies in the AI Era</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td><td>1</td><td>Free Elective</td><td>-</td><td>CAU세미나</td><td>CAU SEMINAR</td><td>1</td><td>Bắt buộc đối với sinh viên năm nhất</td>
+                    </tr>
+                    <tr>
+                        <td>1</td><td>2</td><td>Basic</td><td>59330</td><td>생성형 AI를 활용한 한국학 전공 쓰기</td><td>Writing in Korean Studies Using Generative AI</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td><td>2</td><td>Basic</td><td>59331</td><td>생성형 AI를 활용한 한국학 발표와 토론</td><td>Korean Studies Presentations and Discussions Utilizing Generative AI</td><td>3</td><td></td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td><td>1</td><td>Required</td><td>59314</td><td>한국어학개론</td><td>Introduction to Korean Linguistics</td><td>3</td><td>Korean Teacher Area 1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>1</td><td>Required</td><td>59315</td><td>한국어어문규범</td><td>Korean Orthology</td><td>3</td><td>Korean Teacher Area 1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>1</td><td>Required</td><td>59316</td><td>한국의 전통문화</td><td>Korean traditional culture</td><td>3</td><td>Korean Teacher Area 4</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>1</td><td>Major</td><td>59317</td><td>인공지능 시대의 한국 TV드라마</td><td>Korean TV Dramas in the Era of Artificial Intelligence</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>1</td><td>Major</td><td>59318</td><td>옛이야기로 읽는 한국의 역사와 문화</td><td>Reading Korean History and Culture through Old Stories</td><td>3</td><td>Korean Teacher Area 4</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>1</td><td>Major</td><td>59319</td><td>시로 읽는 한국 현대사</td><td>Korean Modern History through Poetry</td><td>3</td><td>Korean Teacher Area 4</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td><td>2</td><td>Required</td><td>59332</td><td>한국어문법론</td><td>Studies in Korean Grammar</td><td>3</td><td>Korean Teacher Area 1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>2</td><td>Required</td><td>59333</td><td>대조언어학</td><td>Contrastive Linguistics</td><td>3</td><td>Korean Teacher Area 2</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>2</td><td>Required</td><td>59336</td><td>디지털 시대의 한국 옛노래</td><td>Old Korean Classical Poems in the Digital Age</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>2</td><td>Major</td><td>59334</td><td>한국문학의 이해</td><td>Understanding Korean Literature</td><td>3</td><td>Korean Teacher Area 4</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>2</td><td>Major</td><td>59335</td><td>인공지능 시대 시 창작</td><td>Poetry Writing in the Age of Artificial Intelligence</td><td>3</td><td></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59320</td><td>한국어교육개론</td><td>Introduction to Korean Language Education</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59321</td><td>한국어표현교육론</td><td>Studies in Teaching Methodologies of Korean Speaking and Writing</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59322</td><td>한국문화교육론</td><td>Studies in Korean Culture Education</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59323</td><td>한국영상예술로 보는 한국문화</td><td>Korean Culture viewed through Korean Visual Arts</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59324</td><td>디지털 시대의 고전서사문화론</td><td>Theories of Korean Classical Narrative in the Digital Age</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59325</td><td>한국 고전문학과 여성</td><td>Korean Classical Literature and Female</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59326</td><td>AI시대 한국인의 소통과 문화</td><td>Korean Communication and Culture in the Age of AI</td><td>3</td><td></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td><td>2</td><td>Major</td><td>59337</td><td>외국어습득론</td><td>Second Language Acquisition</td><td>3</td><td>Korean Teacher Area 2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>2</td><td>Major</td><td>59338</td><td>한국어이해교육론</td><td>Studies in Teaching Methodologies of Korean Listening and Reading</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>2</td><td>Major</td><td>59339</td><td>한국어문법교육론</td><td>Studies in Korean Grammar Education</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>2</td><td>Major</td><td>59340</td><td>한국어발음교육론</td><td>Studies in Korean Pronunciation Education</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>2</td><td>Major</td><td>59341</td><td>한국어평가론</td><td>Studies in Korean Language Assessment</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>2</td><td>Major</td><td>59342</td><td>한국 대중서사와 스토리텔링</td><td>Korean Popular Narrative and Storytelling</td><td>3</td><td></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td><td>1</td><td>Major</td><td>59327</td><td>한국어교수방법론</td><td>Studies in Teaching Methodologies of Korean Language</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>4</td><td>1</td><td>Major</td><td>59328</td><td>한국어교재론</td><td>Studies in Textbooks for Korean Language Education</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>4</td><td>1</td><td>Major</td><td>59329</td><td>한국학 현장 실습</td><td>Korean Studies Field Practice</td><td>3</td><td>Thay thế Luận văn Tốt nghiệp</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td><td>2</td><td>Major</td><td>59343</td><td>한국 현대 대중문화</td><td>Korean Contemporary Popular Culture</td><td>3</td><td>Korean Teacher Area 4</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td><td>2</td><td>Major</td><td>59344</td><td>한국어교육실습</td><td>Practicum in Korean Language Teaching</td><td>3</td><td>Korean Teacher Area 5</td>
+                    </tr>
+                    <tr>
+                        <td>4</td><td>2</td><td>Major</td><td>59345</td><td>인공지능 시대의 현대소설</td><td>A Modern Novel in the Age of Artificial Intelligence</td><td>3</td><td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3.4. Hướng dẫn Lấy Chứng chỉ Giáo viên Tiếng Hàn</h3>
+            <p>
+                Sinh viên hoàn thành chương trình đào tạo của chuyên ngành này có thể nhận 「한국어교원 2급 자격증」. Để nhận chứng chỉ, cần phải hoàn thành tổng cộng 45 tín chỉ trở lên ở 5 lĩnh vực môn học liên quan. Thông tin chi tiết về hệ thống chứng chỉ có thể được kiểm tra trên trang web chính thức của Viện Ngôn ngữ Quốc gia.
+            </p>
+            <p>
+                <a href="https://kteacher.korean.go.kr/" class="link-out" target="_blank">Đi đến trang web Thẩm định Chứng chỉ Giáo viên Tiếng Hàn của Viện Ngôn ngữ Quốc gia</a>
+            </p>
+        </section>
+
+        <section id="graduation">
+            <h2>4. Điều kiện Tốt nghiệp</h2>
+
+            <h3>4.1. Giới thiệu</h3>
+            <p>
+                Chương trình đào tạo được cấu trúc một cách hệ thống như vậy cung cấp tất cả các nền tảng học thuật và thực tiễn cần thiết để sinh viên trưởng thành thành chuyên gia. Các điều kiện tốt nghiệp cụ thể mà sinh viên phải đáp ứng để đạt được bằng cấp thành công như sau:
+            </p>
+
+            <h3>4.2. Số tín chỉ tiêu chuẩn để Tốt nghiệp</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Phân loại</th>
+                        <th>Nền tảng Chuyên ngành</th>
+                        <th>Môn học Chuyên ngành (bao gồm bắt buộc)</th>
+                        <th>Tổng Tín chỉ Chuyên ngành</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chuyên ngành chính (Sinh viên mới)</td>
+                        <td>15</td>
+                        <td>45 (필수 12)</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>Chuyên sâu Chuyên ngành</td>
+                        <td>15</td>
+                        <td>66</td>
+                        <td>81</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="sub-note">※ Cần đạt điểm trung bình chung (GPA) từ 2.0 trở lên cho tất cả các năm học.</p>
+
+            <h3>4.3. Môn học Bắt buộc phải hoàn thành và Luận văn Tốt nghiệp</h3>
+            <ul>
+                <li><strong>CAU Seminar</strong>: Là môn học bắt buộc 1 tín chỉ được mở vào học kỳ 1.</li>
+                <li><strong>Thay thế Luận văn Tốt nghiệp</strong>: Phải thay thế luận văn tốt nghiệp bằng việc hoàn thành môn học 「한국학 현장 실습」 (3 tín chỉ) được mở vào học kỳ 1 năm thứ 4.</li>
+                <li><strong>Điều kiện Ngôn ngữ Tối thiểu</strong>: Phải đạt trình độ 한국어능력시험(TOPIK) 4급 trở lên trước khi tốt nghiệp.</li>
+            </ul>
+        </section>
+
+        <section id="faculty">
+            <h2>5. Giới thiệu Đội ngũ Giảng viên</h2>
+
+            <h3>5.1. Giới thiệu</h3>
+            <p>
+                Đội ngũ giảng viên của Khoa Ngôn ngữ & Văn học Hàn Quốc có chuyên môn sâu trong nhiều lĩnh vực đa dạng như Ngôn ngữ học quốc ngữ, Giáo dục tiếng Hàn, Văn học cổ điển và hiện đại, và Nghiên cứu nội dung dựa trên nhân văn. Năng lực học thuật rộng lớn của họ sẽ là nền tảng vững chắc để đạt được mục tiêu đào tạo của Chuyên ngành Giáo dục Ngôn ngữ & Văn hóa Hàn Quốc mới thành lập và giúp sinh viên trở thành nhân tài toàn cầu.
+            </p>
+
+            <h3>5.2. Đội ngũ Giảng viên Hiện tại</h3>
+            
+            <img src="푸앙_기본형.png" alt="Pooh-ang dạng cơ bản" class="mascot-reading">
+
+            <h4>Ngôn ngữ học quốc ngữ, Giáo dục tiếng Hàn</h4>
+            <ul>
+                <li>
+                    <strong>이찬규(李燦揆)</strong><br>
+                    Trình độ học vấn cao nhất: Tiến sĩ Văn học, Cao học Đại học Chung-Ang (Chuyên ngành Ngôn ngữ học, Khoa Ngôn ngữ & Văn học Hàn Quốc)<br>
+                    Các môn học đảm nhiệm: 국어학개론, 포스트휴먼시대의 언어와 소통, 국어의미와 화용<br>
+                    Phòng nghiên cứu: Tòa nhà 309, Phòng 313 | Liên hệ: 02-820-5094 | E-mail: leeck@cau.ac.kr
+                </li>
+                <li>
+                    <strong>양명희(梁明姬)</strong><br>
+                    Trình độ học vấn cao nhất: Tiến sĩ Văn học, Cao học Đại học Quốc gia Seoul (Chuyên ngành Ngôn ngữ học, Khoa Ngôn ngữ & Văn học Hàn Quốc)<br>
+                    Các môn học đảm nhiệm: 국어문법론, 사회언어학<br>
+                    Phòng nghiên cứu: Tòa nhà 305, Phòng 514 | Liên hệ: 02-820-5088 | E-mail: yangmh@cau.ac.kr
+                </li>
+                <li>
+                    <strong>박환영(朴奐榮)</strong><br>
+                    Trình độ học vấn cao nhất: Tiến sĩ Văn học, Đại học Cambridge (Chuyên ngành Ngôn ngữ học Nhân loại, Khoa Nhân học Xã hội)<br>
+                    Các môn học đảm nhiệm: 국어사, 훈민정음과 한글 문화<br>
+                    Phòng nghiên cứu: Tòa nhà 305, Phòng 910 | Liên hệ: 02-820-5232 | E-mail: hyp1000@cau.ac.kr
+                </li>
+                <li>
+                    <strong>임현열(林玄烈)</strong><br>
+                    Trình độ học vấn cao nhất: Tiến sĩ Văn học, Cao học Đại học Chung-Ang (Chuyên ngành Ngôn ngữ học, Khoa Ngôn ngữ & Văn học Hàn Quốc)<br>
+                    Các môn học đảm nhiệm: 국어음운론, 인공지능언어학, 언어정보학연구<br>
+                    Phòng nghiên cứu: Tòa nhà 305, Phòng 516 | Liên hệ: 02-820-5085 | E-mail: imhy@cau.ac.kr
+                </li>
+            </ul>
+
+            <h4>Văn học Cổ điển, Nội dung Hợp nhất Nhân văn</h4>
+            <ul>
+                <li>
+                    <strong>이명현(李明賢)</strong><br>
+                    Trình độ học vấn cao nhất: Tiến sĩ Văn học, Cao học Đại học Chung-Ang (Chuyên ngành Văn học Cổ điển, Khoa Ngôn ngữ & Văn học Hàn Quốc)<br>
+                    Các môn học đảm nhiệm: 국문학개론, 고전소설론, 고전서사내러티브의 이해<br>
+                    Phòng nghiên cứu: Tòa nhà 305, Phòng 503 | Liên hệ: 02-820-5815 | E-mail: jef91@cau.ac.kr
+                </li>
+                <li>
+                    <strong>김성문(金成紋)</strong><br>
+                    Trình độ học vấn cao nhất: Tiến sĩ Văn học, Cao học Đại học Chung-Ang (Chuyên ngành Văn học Cổ điển, Khoa Ngôn ngữ & Văn học Hàn Quốc)<br>
+                    Các môn học đảm nhiệm: 고전문학사, 고전문학콘텐츠론<br>
+                    Phòng nghiên cứu: Tòa nhà 303, Phòng 1414 | Liên hệ: 02-820-6781 | E-mail: toughsm@cau.ac.kr
+                </li>
+                <li>
+                    <strong>신성환(申性桓)</strong><br>
+                    Trình độ học vấn cao nhất: Tiến sĩ Văn học, Cao học Đại học Korea (Chuyên ngành Văn học Cổ điển, Khoa Ngôn ngữ & Văn học Hàn Quốc)<br>
+                    Các môn học đảm nhiệm: 고전문학의 이해, 고전시가론, 고전작가론<br>
+                    Phòng nghiên cứu: Tòa nhà 305, Phòng 908 | Liên hệ: 02-820-5061 | E-mail: dkssanga@cau.ac.kr
+                </li>
+            </ul>
+
+            <h4>Văn học Hiện đại</h4>
+            <ul>
+                <li>
+                    <strong>이경수(李京洙)</strong><br>
+                    Trình độ học vấn cao nhất: Tiến sĩ Văn học, Cao học Đại học Korea (Chuyên ngành Văn học Hiện đại, Khoa Ngôn ngữ & Văn học Hàn Quốc)<br>
+                    Các môn học đảm nhiệm: 현대시론, 현대시인론<br>
+                    Phòng nghiên cứu: Tòa nhà 305, Phòng 410 | Liên hệ: 02-820-5087 | E-mail: philosoo@cau.ac.kr
+                </li>
+                <li>
+                    <strong>서세림(徐세림)</strong><br>
+                    Trình độ học vấn cao nhất: Tiến sĩ Văn học, Cao học Đại học Quốc gia Seoul (Chuyên ngành Văn học Hiện đại, Khoa Ngôn ngữ & Văn học Hàn Quốc)<br>
+                    Các môn học đảm nhiệm: 현대소설론, 작가와시대<br>
+                    Phòng nghiên cứu: Tòa nhà 305, Phòng 521 | Liên hệ: 02-820-5104 | E-mail: serim@cau.ac.kr
+                </li>
+            </ul>
+
+            <p class="sub-note">
+                Đội ngũ giảng viên sẽ cố gắng hết sức để hỗ trợ tất cả sinh viên đạt được mục tiêu học thuật và thành công gia nhập xã hội với tư cách là chuyên gia.
+            </p>
+        </section>
+
+        <section id="notice">
+            <h2>6. Thông báo</h2>
+            <div class="notice">
+                <p><strong>Thông tin</strong>: Phần này là không gian dành cho việc đăng tải các thông báo chính thức liên quan đến Chuyên ngành Giáo dục Ngôn ngữ & Văn hóa Hàn Quốc.</p>
+                <p>
+                    Trong tương lai, khi trang web chính thức đi vào hoạt động, các thông tin quan trọng như thay đổi chương trình đào tạo, hướng dẫn học bổng, các sự kiện học thuật lớn sẽ được cập nhật nhanh chóng tại đây.
+                </p>
+                <p>Mong nhận được sự quan tâm của tất cả sinh viên đang theo học và các tân sinh viên tương lai.</p>
+                
+                <img src="푸앙_카우버거.png" alt="Pooh-ang đang ăn CAU Burger" class="mascot-burger">
+            </div>
+        </section>
+
+        <div class="footer-symbol-area">
+            <img src="CAU_symbol.png" alt="중앙대학교 심볼" class="f-symbol">
+            <img src="UI02_CAU_logotype_KOR_ENG.png" alt="중앙대학교 로고타입" class="f-logotype">
+        </div>
+
+    </div>
+    
+    <button onclick="topFunction()" id="go-to-top" title="Lên đầu trang">🔝</button>
+
+    <script>
+        // Get the button
+        let mybutton = document.getElementById("go-to-top");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+</body>
+</html>
