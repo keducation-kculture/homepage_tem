@@ -250,12 +250,41 @@
             clear: both;
             display: table;
         }
+        /* ✅ 페이지 최상단으로 올라가는 버튼 스타일 */
+        #go-to-top {
+            display: none; /* 초기에는 숨김 */
+            position: fixed; /* 페이지 외곽에 고정 */
+            bottom: 30px; /* 아래에서 30px */
+            right: 30px; /* 오른쪽에서 30px */
+            z-index: 99; /* 다른 요소 위에 표시 */
+            border: none;
+            outline: none;
+            background-color: #4fc3f7; /* 배경색 (헤더의 밝은 색상 사용) */
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%; /* 원형 버튼 */
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, opacity 0.3s;
+            opacity: 0.9;
+            font-weight: 700;
+            width: 50px; /* 너비 고정 */
+            height: 50px; /* 높이 고정 */
+            text-align: center;
+            line-height: 20px;
+        }
+
+        #go-to-top:hover {
+            background-color: #0b70c9; /* 마우스 오버 시 색상 변경 */
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
 
     <div class="lang-switcher">
-        <a href="index.html">메인화면으로</a> <a href="ko.html">🇰🇷 한국어</a>
+        <a href="index.html">⬅️메인화면으로</a> <a href="ko.html">🇰🇷 한국어</a>
         <a href="en.html">En English</a>
         <a href="zh.html">🇨🇳 简体中文</a>
         <a href="ja.html">🇯🇵 日本語</a>
@@ -784,5 +813,27 @@
         </div>
 
     </div>
+    <button onclick="topFunction()" id="go-to-top" title="Go to top">▲</button>
+    <script>
+        // Get the button
+        let mybutton = document.getElementById("go-to-top");
+
+        // When the user scrolls down 200px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
 </body>
 </html>
