@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中央大学 国語国文学部 韓国語教育-韓国文化専攻</title>
+    <style>
+        body {
+            /* ✅ 배경 이미지 추가 및 설정 */
+            background-image: url('cau_backgound_2.png');
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #f4f7fb; /* 배경 이미지와 함께 사용 */
+
+            font-family: 'Malgun Gothic', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            max-width: 1100px;
+            margin: 0 auto 40px auto;
+            background-color: #ffffff;
+            padding: 24px 28px 40px 28px;
+            box-shadow: 0 0 18px rgba(0, 0, 0, 0.15); /* 그림자 조정 */
+            border-radius: 12px;
+        }
+        
+        /* ✅ 헤더 스타일 수정 (Flexbox 적용) */
+        header {
+            background: linear-gradient(135deg, #0b70c9, #4fc3f7);
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 16px;
+            box-shadow: 0 3px 8px rgba(3, 57, 108, 0.3);
+            border-radius: 10px 10px 0 0; 
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* 이미지 그룹과 텍스트 그룹 사이 간격 */
+            flex-wrap: wrap; /* 화면이 작으면 줄바꿈 */
+            max-width: 95%;
+            margin: 0 auto;
+        }
+
+        /* 왼쪽 이미지 그룹 */
+        .header-logos {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 오른쪽 텍스트 그룹 */
+        .header-text {
+            text-align: left;
+        }
+
+        /* 헤더 이미지 사이즈 및 컬러 조정 (파란 배경이라 흰색 필터 적용) */
+        .h-emblem {
+            width: 60px;
+            height: auto;
+            filter: brightness(0) invert(1); 
+        }
+        .h-logotype {
+            width: 200px;
+            height: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        /* ✅ 마스코트 이미지 스타일 */
+        .mascot-reading {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 20px auto; 
+        }
+        
+        .mascot-wink {
+            width: 80px;
+            height: auto;
+            float: right;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .mascot-burger {
+            width: 120px;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .mascot-cheer {
+            width: 100px;
+            height: auto;
+            display: block;
+            margin: 30px auto 10px auto;
+        }
+
+        .mascot-reading-small {
+            width: 80px;
+            height: auto;
+            float: left;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* ✅ 하단 심볼 및 로고타입 스타일 */
+        .footer-symbol-area {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            display: flex; /* 나란히 배치 */
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        .f-symbol {
+            width: 60px;
+            height: auto;
+            opacity: 0.8;
+        }
+        .f-logotype {
+            width: 180px;
+            height: auto;
+            opacity: 0.8;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.7rem; /* 텍스트 크기 살짝 조정 */
+            letter-spacing: 0.03em;
+            line-height: 1.2;
+        }
+        header p {
+            margin: 6px 0 0 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* 언어 선택 메뉴 */
+        .lang-switcher {
+            text-align: right;
+            padding: 10px 8%;
+            background-color: #e6f2ff;
+            font-size: 0.9rem;
+        }
+        .lang-switcher a {
+            text-decoration: none;
+            color: #0b70c9;
+            margin-left: 10px;
+            font-weight: 600;
+            padding: 5px 8px;
+            border-radius: 999px;
+            background-color: #ffffff;
+            border: 1px solid #bbdefb;
+        }
+        .lang-switcher a:hover {
+            background-color: #e3f2fd;
+        }
+        nav {
+            background-color: #e8f0fb;
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 18px;
+            border-top: 1px solid #d0e2ff;
+            border-bottom: 1px solid #d0e2ff;
+        }
+        nav a {
+            text-decoration: none;
+            color: #24527a;
+            margin: 0 14px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        nav a:hover {
+            color: #0b70c9;
+            text-decoration: underline;
+        }
+        section {
+            padding: 18px 0 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        h2 {
+            color: #0b70c9;
+            border-left: 5px solid #0b70c9;
+            padding-left: 10px;
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+        h3 {
+            color: #37474f;
+            border-bottom: 1px dashed #cfd8dc;
+            padding-bottom: 4px;
+            margin-top: 16px;
+            font-size: 1.02rem;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 22px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+        th, td {
+            border: 1px solid #e0e0e0;
+            padding: 8px 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #e3f2fd;
+            font-weight: 600;
+        }
+        .roadmap-item {
+            margin-bottom: 12px;
+            padding: 10px 12px;
+            border-left: 3px solid #29b6f6;
+            background-color: #e1f5fe;
+            border-radius: 6px;
+        }
+        .notice {
+            background-color: #e3f2fd;
+            padding: 14px 16px;
+            border: 1px solid #bbdefb;
+            margin-top: 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+        .sub-note {
+            font-size: 0.9rem;
+            color: #616161;
+        }
+        a.link-out {
+            color: #0b70c9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a.link-out:hover {
+            text-decoration: underline;
+        }
+        /* float 해제용 */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        /* ✅ 페이지 최상단으로 올라가는 버튼 스타일 */
+        #go-to-top {
+            display: none; /* 초기에는 숨김 */
+            position: fixed; /* 페이지 외곽에 고정 */
+            bottom: 30px; /* 아래에서 30px */
+            right: 30px; /* 오른쪽에서 30px */
+            z-index: 99; /* 다른 요소 위에 표시 */
+            border: none;
+            outline: none;
+            background-color: #4fc3f7; /* 배경색 (헤더의 밝은 색상 사용) */
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%; /* 원형 버튼 */
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, opacity 0.3s;
+            opacity: 0.9;
+            font-weight: 700;
+            width: 50px; /* 너비 고정 */
+            height: 50px; /* 높이 고정 */
+            text-align: center;
+            line-height: 20px;
+        }
+
+        #go-to-top:hover {
+            background-color: #0b70c9; /* 마우스 오버 시 색상 변경 */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lang-switcher">
+        <a href="index.html">⬅️メインページ</a> <a href="ko.html">🇰🇷 韓国語</a>
+        <a href="en.html">En English</a>
+        <a href="cn.html">🇨🇳 簡体字中国語</a>
+        <a href="ja.html">🇯🇵 日本語</a>
+        <a href="vi.html">🇻🇳 ベトナム語</a>
+        <a href="mn.html">🇲🇳 モンゴル語</a>
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <div class="header-logos">
+                <img src="CAU_emblem.png" alt="中央大学エンブレム" class="h-emblem">
+                <img src="UI02_CAU_logotype_KOR_ENG.png" alt="中央大学ロゴタイプ" class="h-logotype">
+            </div>
+            
+            <div class="header-text">
+                <h1>中央大学 国語国文学部 韓国語教育-韓国文化専攻</h1>
+                <p>CAU Department of Korean Language and Literature · Major in Korean Language Education &amp; Korean Culture</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav>
+            <a href="#intro">専攻紹介</a>
+            <a href="#admission">入学案内</a>
+            <a href="#curriculum">教育課程</a>
+            <a href="#graduation">卒業要件</a>
+            <a href="#faculty">教授陣紹介</a>
+            <a href="#notice">お知らせ</a>
+        </nav>
+
+        <section id="intro">
+            <h2>1. 専攻紹介および教育目標</h2>
+
+            <h3>1.1. はじめに</h3>
+            <div class="clearfix">
+                <img src="푸앙_윙크.png" alt="ウィンクするプアン" class="mascot-wink">
+                <p>
+                    本専攻は、世界的なK-カルチャーへの関心の高まりと韓国語教育専門家の需要増加の傾向に合わせ、外国人留学生向けに特別にカスタマイズ設計されました。AI時代をリードするグローバル韓国語教育専門家の育成を目標とする本専攻の戦略的重要性および体系的な教育課程を紹介します。
+                </p>
+            </div>
+
+            <h3>1.2. 公式専攻紹介および教育目標</h3>
+            <p>
+                韓国語教育-韓国文化専攻は、外国語としての韓国語教育の理論とカリキュラム設計、および韓国の伝統から現代文化を包括する文化コンテンツの素養において、バランスの取れた能力を持つ人材を育成することを目指します。1年生では、生成AIを学習ツールとして活用したアカデミックな目的の韓国語スピーキング、リーディング、ライティング、発表能力を培い、専攻の基礎能力を習得します。2年生では、韓国語学概論、言語規範、文学、対照言語学、文法論などの学術的基盤を体系的に構築します。3年生では、第二言語習得論、発音、文法、理解教育、評価、教材などに関する教授法を深化させます。4年生では、教育実習、現代大衆文化と物語分析を通じて、現場への適応能力を培い、ポートフォリオを完成させます。
+            </p>
+
+            <h3>教育目標</h3>
+            <ul>
+                <li>国語学、韓国語教育学、韓国学を基盤として、韓国語授業の運営能力、カリキュラム、評価、教材開発能力を兼ね備えた教育専門家を養成する。</li>
+                <li>伝統文化から現代大衆文化に至るまで、韓国文化の歴史性と時代性を批判的に理解し、コンテンツ分析および物語作成能力を培う。</li>
+                <li>変化する教育環境の中で、生成AIを含むデジタルツールを補助手段として適切に活用し、教授効率と学術目的のコミュニケーション能力を高める素養を確立する。</li>
+                <li>多文化・多言語環境での異文化コミュニケーション能力と現場実務能力を強化し、卒業生が国内外の教育機関および文化コンテンツ分野に進出することを支援する。</li>
+            </ul>
+
+            <h3>1.3. 4年間の教育ロードマップ：AI時代の韓国語教育専門家育成過程</h3>
+            <p>本専攻の教育課程は、基礎知識の構築から現場の実践に至るまで、学生の能力を体系的に向上させるように設計されています。</p>
+
+            <div class="roadmap-item">
+                <strong>1年生 【AI活用韓国学基礎】</strong>
+                <p>生成AIに基づいたアカデミックな目的の韓国語コミュニケーション能力および専攻基礎学習。</p>
+            </div>
+            <div class="roadmap-item">
+                <strong>2年生 【言語・文化理論の体系化】</strong>
+                <p>韓国語学、文法論、対照言語学などの理論的基盤を構築。</p>
+            </div>
+            <div class="roadmap-item">
+                <strong>3年生 【教授法 + コンテンツの専門化】</strong>
+                <p>発音、文法、理解・表現・評価教育論および教材に関連する教授法を深化。</p>
+            </div>
+            <div class="roadmap-item">
+                <strong>4年生 【現場実習 + ポートフォリオ】</strong>
+                <p>教育実習、教材開発、大衆文化・物語分析を通じて、現場能力を完成。</p>
+            </div>
+
+            <h3>1.4. 本専攻に適した学生 (Recommended Student Profile)</h3>
+            <img src="푸앙_응원.png" alt="応援するプアン" class="mascot-cheer">
+            <p>本専攻を推薦する学生のタイプは以下の通りです。</p>
+            <ul>
+                <li>外国人と韓国語でコミュニケーションを取り、教えることに興味がある。</li>
+                <li>K-ドラマ、K-POPなどの韓流文化を世界に広めたい。</li>
+                <li>伝統文化から大衆文化に至るまで、韓国文化全般に好奇心がある。</li>
+                <li>多文化社会で異文化コミュニケーション能力を培いたい。</li>
+                <li>生成AIなどの最新デジタルツールを教育に活用することに関心がある。</li>
+                <li>国内外の教育現場で実践的な教育能力を発揮したい。</li>
+                <li>言語学的分析と体系的な教授法設計に関心がある。</li>
+                <li>物語作成とコンテンツ分析・企画能力を培いたい。</li>
+                <li>海外で韓国語教師としてグローバルな経験を積みたい。</li>
+                <li>教材開発、評価設計などの教育コンテンツ制作に挑戦したい。</li>
+            </ul>
+
+            <h3>1.5. 卒業後の進路 (Career Paths after Graduation)</h3>
+            <ul>
+                <li><strong>韓国語教育機関</strong>: 国内外の大学韓国語学堂、世宗学堂、多文化家庭支援センター、外国人学校、韓国国際交流財団派遣教師など</li>
+                <li><strong>文化コンテンツ産業</strong>: 韓流コンテンツ企画会社、ウェブトゥーン・ドラマのストーリーテラー、文化観光解説者、翻訳・通訳専門家</li>
+                <li><strong>教育研究機関</strong>: 韓国語教育関連研究所、教材・カリキュラム開発機関、言語教育評価院、大学院進学</li>
+                <li><strong>公共機関</strong>: 教育部・文体部傘下機関、地方自治体の外国人政策担当、国際交流センター、公共図書館多文化サービス</li>
+                <li><strong>資格取得</strong>: 韓国語教員資格2級、文化観光解説者、観光通訳ガイドなどの専門資格取得後のフリーランス活動</li>
+            </ul>
+            <p class="sub-note">
+                韓国語教育-韓国文化専攻は、体系的な教育課程と明確なキャリアプランを通じて、韓流文化時代をリードするグローバルリーダーの育成を目指します。
+            </p>
+        </section>
+
+        <section id="admission">
+            <h2>2. 入学案内 (2026学年度3月入学の純外国人選抜基準)</h2>
+
+            <h3>2.1. はじめに</h3>
+            <p>
+                本セクションでは、「2026学年度前期学部純外国人選抜募集要項」に基づき、中央大学への入学を希望する外国人学生のための選抜手続きの概要情報を提供します。「韓国語教育-韓国文化専攻」は外国人留学生を対象に新設された専攻であり、出願資格を必ずご確認ください。
+            </p>
+
+            <h3>2.2. 出願資格</h3>
+            <p><strong>1) 学歴および国籍 (共通)</strong></p>
+            <ul>
+                <li><strong>新入学</strong>: 両親がともに外国人である外国人で、国内外の正規高等学校卒業(予定)者または同等以上の学歴が認められる者</li>
+                <li><strong>2年次編入学</strong>: 両親がともに外国人である外国人で、国内外の正規4年制大学で2学期(1年)以上修了(予定)した者、または国内外の正規短期大学卒業(予定)者</li>
+                <li><strong>3年次編入学</strong>: 両親がともに外国人である外国人で、国内外の正規4年制大学で4学期(2年)以上修了(予定)した者、または国内外の正規短期大学卒業(予定)者</li>
+            </ul>
+
+            <p><strong>2) 語学能力</strong></p>
+            <ul>
+                <li>出願時に別途の韓国語能力資格は求められません。</li>
+                <li>ただし、学部課程の履修には韓国語能力基準を満たす必要があり、未達者は韓国語再教育課程への参加が必要です。（学部入学のための詳細な韓国語能力基準は、公式募集要項をご参照ください。）</li>
+                <li>卒業前までに韓国語能力試験(TOPIK) 4級以上の成績を取得する必要があります（本専攻の卒業審査基準による）。</li>
+            </ul>
+
+            <h3>2.3. 選抜方法および日程</h3>
+            <p><strong>選抜方法</strong></p>
+            <ul>
+                <li>評価方式: 書類審査100% (一括合算)</li>
+                <li>複数出願: 最大2つの専攻に同時出願可能</li>
+            </ul>
+
+            <p><strong>2026学年度前期(3月入学) 2次選抜の主要日程</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>区分</th>
+                        <th>日程</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>出願および書類提出</td>
+                        <td>2025. 11. 12. (水) ~ 11. 26. (水)</td>
+                    </tr>
+                    <tr>
+                        <td>合格者発表</td>
+                        <td>2025. 12. 19. (金)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2.4. 国際処入学案内</h3>
+            <p>
+                入学選抜に関する最も正確で完全な情報は、中央大学国際処のウェブサイトでご確認ください。
+            </p>
+            <p>
+                <a href="https://oia.cau.ac.kr/" class="link-out" target="_blank">中央大学国際処入学案内のリンク</a>
+            </p>
+        </section>
+
+        <section id="curriculum">
+            <h2>3. 教育課程</h2>
+
+            <h3>3.1. 紹介</h3>
+            <div class="clearfix">
+                <img src="푸앙_독서.png" alt="読書するプアン" class="mascot-reading-small">
+                <p>
+                    「韓国語教育-韓国文化専攻」の教育課程は、低学年での基盤知識の構築から高学年での実務適用および専門化へと体系的に繋がるように設計されています。この課程を誠実に履修することで、卒業時に「韓国語教員2級資格証」の取得要件を満たし、韓国語教育専門家としての第一歩を踏み出すことができます。
+                </p>
+            </div>
+
+            <h3>3.2. 専攻基礎および専攻必修科目</h3>
+            <p><strong>専攻基礎科目 (15単位)</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Course Title (in Korean)</th>
+                        <th>Course Title (in English)</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>59311</td><td>생성AI를 활용한 한국학 전공 말하기</td><td>Korean Studies Speaking Utilizing Generative AI</td><td>3</td></tr>
+                    <tr><td>59312</td><td>한국학 자료 읽기</td><td>Academic Reading in Korean</td><td>3</td></tr>
+                    <tr><td>59313</td><td>AI시대 한국학 기초 어휘론</td><td>The Basic Vocabulary Theory of Korean Studies in the AI Era</td><td>3</td></tr>
+                    <tr><td>59330</td><td>생성AI를 활용한 한국학 전공 글쓰기</td><td>Writing in Korean Studies Using Generative AI</td><td>3</td></tr>
+                    <tr><td>59331</td><td>생성AI를 활용한 한국학 발표와 토론</td><td>Korean Studies Presentations and Discussions Utilizing Generative AI</td><td>3</td></tr>
+                </tbody>
+            </table>
+
+            <p><strong>専攻必修科目 (以下の6科目の中から12単位を選択履修)</strong></p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Course Title (in Korean)</th>
+                        <th>Course Title (in English)</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>59314</td><td>한국어학개론</td><td>Introduction to Korean Linguistics</td><td>3</td></tr>
+                    <tr><td>59315</td><td>한국어 규범</td><td>Korean Orthology</td><td>3</td></tr>
+                    <tr><td>59316</td><td>한국의 전통 문화</td><td>Korean traditional culture</td><td>3</td><td></td>
+                    </tr>
+                    <tr><td>59332</td><td>한국어 문법론</td><td>Studies in Korean Grammar</td><td>3</td></tr>
+                    <tr><td>59333</td><td>대조 언어학</td><td>Contrastive Linguistics</td><td>3</td></tr>
+                    <tr><td>59336</td><td>디지털 시대 한국 고전 가요</td><td>Old Korean Classical Poems in the Digital Age</td><td>3</td></tr>
+                </tbody>
+            </table>
+
+            <h3>3.3. 全体教育課程表 (学年別開講科目)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Semester</th>
+                        <th>Category</th>
+                        <th>Course Code</th>
+                        <th>課程名称 (韓国語)</th>
+                        <th>Course Title (in English)</th>
+                        <th>Credits</th>
+                        <th>Certificate Relevance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td><td>1</td><td>Basic</td><td>59311</td><td>생성AI를 활용한 한국학 전공 말하기</td><td>Korean Studies Speaking Utilizing Generative AI</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td><td>1</td><td>Basic</td><td>59312</td><td>한국학 자료 읽기</td><td>Academic Reading in Korean</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td><td>1</td><td>Basic</td><td>59313</td><td>AI시대 한국학 기초 어휘론</td><td>The Basic Vocabulary Theory of Korean Studies in the AI Era</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td><td>1</td><td>Free Elective</td><td>-</td><td>CAU 세미나</td><td>CAU SEMINAR</td><td>1</td><td>Required for 1st-year students</td>
+                    </tr>
+                    <tr>
+                        <td>1</td><td>2</td><td>Basic</td><td>59330</td><td>생성AI를 활용한 한국학 전공 글쓰기</td><td>Writing in Korean Studies Using Generative AI</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>1</td><td>2</td><td>Basic</td><td>59331</td><td>생성AI를 활용한 한국학 발표와 토론</td><td>Korean Studies Presentations and Discussions Utilizing Generative AI</td><td>3</td><td></td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td><td>1</td><td>Required</td><td>59314</td><td>한국어학개론</td><td>Introduction to Korean Linguistics</td><td>3</td><td>Korean Teacher Area 1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>1</td><td>Required</td><td>59315</td><td>한국어 규범</td><td>Korean Orthology</td><td>3</td><td>Korean Teacher Area 1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>1</td><td>Required</td><td>59316</td><td>한국의 전통 문화</td><td>Korean traditional culture</td><td>3</td><td>Korean Teacher Area 4</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>1</td><td>Major</td><td>59317</td><td>인공지능시대의 한국 드라마</td><td>Korean TV Dramas in the Era of Artificial Intelligence</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>1</td><td>Major</td><td>59318</td><td>옛 이야기로 읽는 한국 역사와 문화</td><td>Reading Korean History and Culture through Old Stories</td><td>3</td><td>Korean Teacher Area 4</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>1</td><td>Major</td><td>59319</td><td>시를 통해 보는 한국 현대사</td><td>Korean Modern History through Poetry</td><td>3</td><td>Korean Teacher Area 4</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td><td>2</td><td>Required</td><td>59332</td><td>한국어 문법론</td><td>Studies in Korean Grammar</td><td>3</td><td>Korean Teacher Area 1</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>2</td><td>Required</td><td>59333</td><td>대조 언어학</td><td>Contrastive Linguistics</td><td>3</td><td>Korean Teacher Area 2</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>2</td><td>Required</td><td>59336</td><td>디지털 시대 한국 고전 가요</td><td>Old Korean Classical Poems in the Digital Age</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>2</td><td>Major</td><td>59334</td><td>한국 문학의 이해</td><td>Understanding Korean Literature</td><td>3</td><td>Korean Teacher Area 4</td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>2</td><td>Major</td><td>59335</td><td>인공지능시대 시 창작</td><td>Poetry Writing in the Age of Artificial Intelligence</td><td>3</td><td></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59320</td><td>한국어 교육개론</td><td>Introduction to Korean Language Education</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59321</td><td>한국어 표현 교육론</td><td>Studies in Teaching Methodologies of Korean Speaking and Writing</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59322</td><td>한국 문화 교육론</td><td>Studies in Korean Culture Education</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59323</td><td>한국 영상 예술로 보는 한국 문화</td><td>Korean Culture viewed through Korean Visual Arts</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59324</td><td>디지털 시대 고전 서사문화론</td><td>Theories of Korean Classical Narrative in the Digital Age</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59325</td><td>한국 고전 문학과 여성</td><td>Korean Classical Literature and Female</td><td>3</td><td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>1</td><td>Major</td><td>59326</td><td>AI시대 한국인의 소통과 문화</td><td>Korean Communication and Culture in the Age of AI</td><td>3</td><td></td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td><td>2</td><td>Major</td><td>59337</td><td>외국어 습득론</td><td>Second Language Acquisition</td><td>3</td><td>Korean Teacher Area 2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>2</td><td>Major</td><td>59338</td><td>한국어 이해 교육론</td><td>Studies in Teaching Methodologies of Korean Listening and Reading</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>2</td><td>Major</td><td>59339</td><td>한국어 문법 교육론</td><td>Studies in Korean Grammar Education</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>2</td><td>Major</td><td>59340</td><td>한국어 발음 교육론</td><td>Studies in Korean Pronunciation Education</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>2</td><td>Major</td><td>59341</td><td>한국어 평가론</td><td>Studies in Korean Language Assessment</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>2</td><td>Major</td><td>59342</td><td>한국 대중 서사와 스토리텔링</td><td>Korean Popular Narrative and Storytelling</td><td>3</td><td></td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td><td>1</td><td>Major</td><td>59327</td><td>한국어 교수 방법론</td><td>Studies in Teaching Methodologies of Korean Language</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>4</td><td>1</td><td>Major</td><td>59328</td><td>한국어 교재론</td><td>Studies in Textbooks for Korean Language Education</td><td>3</td><td>Korean Teacher Area 3</td>
+                    </tr>
+                    <tr>
+                        <td>4</td><td>1</td><td>Major</td><td>59329</td><td>한국학 현장 실습</td><td>Korean Studies Field Practice</td><td>3</td><td>Graduation Thesis Substitute</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>4</td><td>2</td><td>Major</td><td>59343</td><td>한국 현대 대중 문화</td><td>Korean Contemporary Popular Culture</td><td>3</td><td>Korean Teacher Area 4</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td><td>2</td><td>Major</td><td>59344</td><td>한국어 교육 실습</td><td>Practicum in Korean Language Teaching</td><td>3</td><td>Korean Teacher Area 5</td>
+                    </tr>
+                    <tr>
+                        <td>4</td><td>2</td><td>Major</td><td>59345</td><td>인공지능 시대의 현대 소설</td><td>A Modern Novel in the Age of Artificial Intelligence</td><td>3</td><td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3.4. 韓国語教員資格証取得案内</h3>
+            <p>
+                本専攻の教育課程を履修した学生は、「韓国語教員2級資格証」を取得することができます。資格証を取得するためには、関連科目の5つの領域で合計45単位以上を履修する必要があります。資格制度の詳細については、国立国語院の公式ウェブサイトでご確認ください。
+            </p>
+            <p>
+                <a href="https://kteacher.korean.go.kr/" class="link-out" target="_blank">国立国語院 韓国語教員資格審査ウェブサイトのリンク</a>
+            </p>
+        </section>
+
+        <section id="graduation">
+            <h2>4. 卒業要件</h2>
+
+            <h3>4.1. 紹介</h3>
+            <p>
+                体系的に構成されたこの教育課程は、学生が専門家として成長するために必要なすべての学術的および実務的基盤を提供します。学位を成功裏に取得するために満たすべき具体的な卒業要件は以下の通りです。
+            </p>
+
+            <h3>4.2. 卒業基準単位</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>区分</th>
+                        <th>専攻基礎</th>
+                        <th>専攻履修 (専攻必修を含む)</th>
+                        <th>専攻総単位</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>主専攻 (新入学)</td>
+                        <td>15</td>
+                        <td>45 (必修 12)</td>
+                        <td>60</td>
+                    </tr>
+                    <tr>
+                        <td>専攻深化</td>
+                        <td>15</td>
+                        <td>66</td>
+                        <td>81</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="sub-note">※ 全学年の平均評点が2.0以上である必要があります。</p>
+
+            <h3>4.3. 必修科目および卒業論文</h3>
+            <ul>
+                <li><strong>CAUセミナー</strong>: 1学期に開講される1単位の必修科目です。</li>
+                <li><strong>卒業論文代替</strong>: 4学年1学期に開講される「한국학 현장 실습」（3単位）科目を履修することで卒業論文に代える必要があります。</li>
+                <li><strong>最低語学能力要件</strong>: 卒業前までに韓国語能力試験(TOPIK) 4級以上の成績を取得する必要があります。</li>
+            </ul>
+        </section>
+
+        <section id="faculty">
+            <h2>5. 教授陣紹介</h2>
+
+            <h3>5.1. 紹介</h3>
+            <p>
+                国語国文学部の教授陣は、国語学、韓国語教育学、古典および現代文学、人文学に基づいたコンテンツ研究など、多岐にわたる分野で深い専門性を有しています。彼らの幅広い学術的専門能力は、新設された韓国語教育-韓国文化専攻の教育目標達成と、学生がグローバル人材として成長するための確固たる基盤となるでしょう。
+            </p>
+
+            <h3>5.2. 現任教授陣</h3>
+            
+            <img src="푸앙_기본형.png" alt="基本形態のプアン" class="mascot-reading">
+
+            <h4>国語学、韓国語教育学</h4>
+            <ul>
+                <li>
+                    <strong>이찬규(李燦揆)</strong><br>
+                    最終学歴: 中央大学大学院 文学博士(国語国文学科 国語学専攻)<br>
+                    担当科目: 국어학개론, 포스트휴먼시대의 언어와 소통, 국어 의미와 화용<br>
+                    研究室: 309관 313호 | 連絡先: 02-820-5094 | E-mail: leeck@cau.ac.kr
+                </li>
+                <li>
+                    <strong>양명희(梁明姬)</strong><br>
+                    最終学歴: ソウル大学大学院 文学博士(国語国文学科 国語学専攻)<br>
+                    担当科目: 국어 문법론, 사회언어학<br>
+                    研究室: 305관 514호 | 連絡先: 02-820-5088 | E-mail: yangmh@cau.ac.kr
+                </li>
+                <li>
+                    <strong>박환영(朴奐榮)</strong><br>
+                    最終学歴: ケンブリッジ大学 文学博士(社会人類学科 人類言語学専攻)<br>
+                    担当科目: 국어사, 훈민정음과 한글 문화<br>
+                    研究室: 305관 910호 | 連絡先: 02-820-5232 | E-mail: hyp1000@cau.ac.kr
+                </li>
+                <li>
+                    <strong>임현렬(林玄烈)</strong><br>
+                    最終学歴: 中央大学大学院 文学博士(国語国文学科 国語学専攻)<br>
+                    担当科目: 국어 음운론, 인공지능 언어학, 언어정보학 연구<br>
+                    研究室: 305관 516호 | 連絡先: 02-820-5085 | E-mail: imhy@cau.ac.kr
+                </li>
+            </ul>
+
+            <h4>古典文学、人文融合コンテンツ</h4>
+            <ul>
+                <li>
+                    <strong>이명현(李明賢)</strong><br>
+                    最終学歴: 中央大学大学院 文学博士(国語国文学科 古典文学専攻)<br>
+                    担当科目: 국문학개론, 고전 소설론, 고전 서사 서술의 이해<br>
+                    研究室: 305관 503호 | 連絡先: 02-820-5815 | E-mail: jef91@cau.ac.kr
+                </li>
+                <li>
+                    <strong>김성문(金成紋)</strong><br>
+                    最終学歴: 中央大学大学院 文学博士(国語国文学科 古典文学専攻)<br>
+                    担当科目: 고전 문학사, 고전 문학 콘텐츠론<br>
+                    研究室: 303관 1414호 | 連絡先: 02-820-6781 | E-mail: toughsm@cau.ac.kr
+                </li>
+                <li>
+                    <strong>신성환(申性桓)</strong><br>
+                    最終学歴: 高麗大学大学院 文学博士(国語国文学科 古典文学専攻)<br>
+                    担当科目: 고전 문학의 이해, 고전 시가론, 고전 작가론<br>
+                    研究室: 305관 908호 | 連絡先: 02-820-5061 | E-mail: dkssanga@cau.ac.kr
+                </li>
+            </ul>
+
+            <h4>現代文学</h4>
+            <ul>
+                <li>
+                    <strong>이경수(李京洙)</strong><br>
+                    最終学歴: 高麗大学大学院 文学博士(国語国文学科 現代文学専攻)<br>
+                    担当科目: 현대 시론, 현대 시인론<br>
+                    研究室: 305관 410호 | 連絡先: 02-820-5087 | E-mail: philosoo@cau.ac.kr
+                </li>
+                <li>
+                    <strong>서세림(徐세림)</strong><br>
+                    最終学歴: ソウル大学大学院 文学博士(国語国文学科 現代文学専攻)<br>
+                    担当科目: 현대 소설론, 작가와 시대<br>
+                    研究室: 305관 521호 | 連絡先: 02-820-5104 | E-mail: serim@cau.ac.kr
+                </li>
+            </ul>
+
+            <p class="sub-note">
+                教授陣は、すべての学生が学術的な目標を達成し、専門家として社会に進出できるよう、最大限のサポートを提供することに専念しています。
+            </p>
+        </section>
+
+        <section id="notice">
+            <h2>6. お知らせ</h2>
+            <div class="notice">
+                <p><strong>ご案内</strong>: 本セクションは、「韓国語教育-韓国文化専攻」に関連する公式の公知事項を掲載するためのスペースです。</p>
+                <p>
+                    今後、ウェブサイトが正式に運営されれば、教育課程の変更、奨学金案内、主要な学術イベントなど重要な情報が
+                    ここを通じて迅速に更新される予定です。
+                </p>
+                <p>在学生および予備新入生の皆様の多くの関心をお願いします。</p>
+                
+                <img src="푸앙_카우버거.png" alt="CAUバーガーを食べるプアン" class="mascot-burger">
+            </div>
+        </section>
+
+        <div class="footer-symbol-area">
+            <img src="CAU_symbol.png" alt="中央大学シンボル" class="f-symbol">
+            <img src="UI02_CAU_logotype_KOR_ENG.png" alt="中央大学ロゴタイプ" class="f-logotype">
+        </div>
+
+    </div>
+    
+    <button onclick="topFunction()" id="go-to-top" title="トップへ">🔝</button>
+
+    <script>
+        // Get the button
+        let mybutton = document.getElementById("go-to-top");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0; // For Safari
+          document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+</body>
+</html>
